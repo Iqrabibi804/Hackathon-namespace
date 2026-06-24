@@ -61,6 +61,8 @@ if (inputXml && outputFile) {
   const md = docxXmlToMarkdown(inputXml);
   fs.writeFileSync(outputFile, md, 'utf8');
   console.log(`Successfully converted ${inputXml} to ${outputFile}`);
-} else {
+} else if (require.main === module) {
   console.log('Usage: node read_xml_to_md.js <input_xml> <output_md>');
 }
+
+module.exports = { docxXmlToMarkdown };

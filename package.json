@@ -1,0 +1,16 @@
+{
+  "name": "hackathon-namespace",
+  "version": "1.0.0",
+  "main": "read_transcript.js",
+  "scripts": {
+    "test": "jest --coverage",
+    "test:python": "pytest tests/ -v --tb=short"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "description": "",
+  "devDependencies": {
+    "jest": "^30.4.2"
+  }
+}
