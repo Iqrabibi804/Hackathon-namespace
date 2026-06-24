@@ -11,3 +11,26 @@ services:
         sync: false
       - key: NEXT_PUBLIC_SUPABASE_ANON_KEY
         sync: false
+      - key: NEXT_PUBLIC_STRIPE_API_KEY
+        sync: false
+      - key: NEXT_PUBLIC_WALLETCONNECT_PROJECT_ID
+        sync: false
+      - key: NEXT_PUBLIC_ALCHEMY_API_KEY
+        sync: false
+
+  - type: web
+    name: nexus-agent-backend
+    env: node
+    buildCommand: cd backend && npm install && npm run build
+    startCommand: cd backend && npm start
+    envVars:
+      - key: NODE_VERSION
+        value: 20.x
+      - key: PORT
+        value: 5000
+      - key: POLYGONSCAN_API_KEY
+        sync: false
+      - key: COINGECKO_API_KEY
+        sync: false
+      - key: CLAUDE_API_KEY
+        sync: false
