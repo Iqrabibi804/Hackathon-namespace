@@ -71,7 +71,7 @@ export default function SettingsPage() {
                     <div className="flex items-center gap-2">
                       <input
                         type="password"
-                        value="sk_live_1234567890abcdefghijklmnopqrstuvwxyz"
+                        value={process.env.NEXT_PUBLIC_STRIPE_API_KEY || "sk_••••••••••••••••••••••••••••••••"}
                         readOnly
                         className="w-full bg-gray-50 dark:bg-slate-800 border border-gray-200 dark:border-white/5 focus:outline-none rounded-2xl px-4 py-3 text-xs font-semibold font-mono text-gray-500 dark:text-gray-400"
                       />
