@@ -23,6 +23,8 @@ function readXml(xmlPath) {
 const target = process.argv[2];
 if (target) {
   console.log(readXml(target));
-} else {
+} else if (require.main === module) {
   console.log('Provide path to document.xml');
 }
+
+module.exports = { readXml };
