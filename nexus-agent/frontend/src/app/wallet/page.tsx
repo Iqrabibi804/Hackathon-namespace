@@ -1,6 +1,6 @@
 'use client';
 
-import { useState, useEffect } from 'react';
+import { useState, useEffect, Suspense } from 'react';
 import { useAccount } from 'wagmi';
 import { useSearchParams } from 'next/navigation';
 import { motion, AnimatePresence } from 'framer-motion';
@@ -8,7 +8,15 @@ import Sidebar from '../../components/Sidebar';
 import TopBar from '../../components/TopBar';
 import SecurityShield3D from '../../components/SecurityShield3D';
 
-export default function WalletAnalysis() {
+export default function WalletAnalysisPage() {
+  return (
+    <Suspense fallback={<div className="min-h-screen bg-white dark:bg-slate-950" />}>
+      <WalletAnalysis />
+    </Suspense>
+  );
+}
+
+function WalletAnalysis() {
   const { address: connectedAddress, isConnected } = useAccount();
   const searchParams = useSearchParams();
   const [mounted, setMounted] = useState(false);

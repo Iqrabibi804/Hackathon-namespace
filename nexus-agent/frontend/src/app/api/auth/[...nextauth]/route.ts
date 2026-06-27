@@ -12,9 +12,9 @@ declare module "next-auth" {
   }
 }
 
-const supabase = createClient(
-  process.env.NEXT_PUBLIC_SUPABASE_URL!,
-  process.env.SUPABASE_SERVICE_ROLE_KEY!
+const getSupabase = () => createClient(
+  process.env.NEXT_PUBLIC_SUPABASE_URL || '',
+  process.env.SUPABASE_SERVICE_ROLE_KEY || ''
 );
 
 const handler = NextAuth({
@@ -34,7 +34,7 @@ const handler = NextAuth({
             const address = siwe.address.toLowerCase();
             
             // Upsert user in Supabase
-            const { data: user } = await supabase
+            const { data: user } = await getSupabase()
               .from('users')
               .upsert({ wallet_address: address }, { onConflict: 'wallet_address' })
               .select()
